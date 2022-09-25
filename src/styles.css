@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* .container  */
+
+.show__square::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.show__square::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.show__square::-webkit-scrollbar-button:increment,.show__square::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.show__square::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.show__square::-webkit-scrollbar-thumb {
+    background-color: #D7DBDD;
+    border: 2px solid #f1f2f3;
+}
+
+.show__square::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
