@@ -3,6 +3,7 @@ import Container from '../components/Container'
 import { Text } from '@chakra-ui/react'
 import Banner from '../components/Banner'
 import FormRegister from '../components/FormRegister'
+import getMessage from '../utils/getMessage'
 
 const Home = () => {
     return (
@@ -15,8 +16,7 @@ const Home = () => {
                 textAlign='center'
                 fontWeight='700'
             >
-                REGISTRO DE ASPIRANTES A 
-                CURSO ALTA ESPECILIDAD EN ENDOSCOPIA GINECOLOGICA
+                {getMessage('TITLE_PAGE')}
             </Text>
 
             <FormRegister />

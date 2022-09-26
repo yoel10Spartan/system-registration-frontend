@@ -1,5 +1,6 @@
 import React from 'react'
 import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Button, useDisclosure } from '@chakra-ui/react'
+import getMessage from '../utils/getMessage'
 
 const AlertMessage = ({ isOpen, onClose }) => {
     const cancelRef = React.useRef()
@@ -14,14 +15,14 @@ const AlertMessage = ({ isOpen, onClose }) => {
                 <AlertDialogOverlay>
                     <AlertDialogContent>
                         <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-                            ¡Envio exitoso!
+                            {getMessage('SUCCEFUL_SEND')}
                         </AlertDialogHeader>
                         <AlertDialogBody>
-                            Tu informacion ha sido enviada de forma correcta. ¡Suerte!
+                            {getMessage('DESCRIPTION_SUCCEFUL_SEND_DATA')}
                         </AlertDialogBody>
                         <AlertDialogFooter>
                             <Button colorScheme='blue' onClick={onClose} ml={3}>
-                                Aceptar
+                                {getMessage('OK_MESSAGE')}
                             </Button>
                         </AlertDialogFooter>
                     </AlertDialogContent>
