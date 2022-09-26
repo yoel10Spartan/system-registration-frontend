@@ -10,9 +10,18 @@ const Banner = () => {
             justifyContent='space-evenly'
             margin='10px'
         >
-            <BannerImage src={ logo1 } alt='logo1' />
-            <BannerImage src={ logo2 } alt='logo2' />
-            <BannerImage src={ logo3 } alt='logo3' />
+            <BannerImage 
+                src={ logo1 } 
+                alt='logo1' 
+            />
+            <BannerImage 
+                src={ logo2 } 
+                alt='logo2' 
+            />
+            <BannerImage 
+                src={ logo3 } 
+                alt='logo3' 
+            />
         </Flex>
     )
 }
@@ -21,7 +30,6 @@ export default Banner
 
 const BannerImage = chakra(Image, {
     baseStyle: {
-        w: '150px',
-        h: '150px'
+        w: ['80px' ,'100px', '150px'],
     }
 })
