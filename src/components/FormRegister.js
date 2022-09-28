@@ -18,11 +18,12 @@ const FormRegister = () => {
             status='warning'
             margin='20px 0'
             flexDirection={['column', 'column', 'column', 'column', 'row']}
+            background='#000'
+            color='#fff'
         >
             <AlertIcon />
             <AlertTitle>{getMessage('WARNING_LIST_OF_DOCTORS_TITLE')}</AlertTitle>
             <AlertDescription>
-                {getMessage('WARNING_LIST_OF_DOCTORS_SUBTITLE')}{' '}
                 <a 
                     href={getMessage('WARNING_LIST_OF_DOCTORS_URL')} 
                     target='_blank'
@@ -34,17 +35,21 @@ const FormRegister = () => {
     )
 
     const AlertInfo = (
-        <Alert status='info'>
-            <AlertIcon />
-            <Text>
-                {getMessage('DOWNLOAD_FILE_CALL')} {' '} 
-                <a 
-                    href={getMessage('DOWNLOAD_FILE_CALL_URL')}
-                >
-                    {getMessage('CLICK_HERE')}
-                </a> 
-            </Text>
-        </Alert>
+        <a 
+            href={getMessage('DOWNLOAD_FILE_CALL_URL')}
+        >
+            <Alert 
+                status='info'
+                background='#000'
+                color='#fff'
+                margin='20px 0'
+            >
+                <AlertIcon />
+                <Text>
+                    {getMessage('DOWNLOAD_FILE_CALL')} {' '} 
+                </Text>
+            </Alert>
+        </a> 
     )
 
     return (
@@ -56,6 +61,13 @@ const FormRegister = () => {
                     <FormRender key={i} { ...input } />
                 ))
             }
+
+            <Text
+                textAlign='center'
+                fontWeight='600'
+            >
+                FAVOR DE AGREGAR LOS SIGUIENTES DOCUMENTOS:
+            </Text>
 
             {
                 fileInputList.map((input, i) => (

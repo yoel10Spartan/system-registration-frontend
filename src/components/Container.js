@@ -10,7 +10,7 @@ const Container = (props) => {
             height='100vh'
             justifyContent='center'
             alignItems='center'
-            background='linear-gradient(to right, #00c6ff, #0072ff)'
+            background='linear-gradient(to right, #8e9eab, #eef2f3)'
         >
             <Box
                 { ...props }
