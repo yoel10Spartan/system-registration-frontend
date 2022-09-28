@@ -2,7 +2,6 @@
 
 sudo rm -r /home/system-registration-frontend/build
 ( cd /home/system-registration-frontend && npm run build )
-( cd /home/system-registration-frontend && git pull )
 sudo rm -r /var/www/html/femeg/
 mkdir /var/www/html/femeg
 cp -r /home/system-registration-frontend/build/* /var/www/html/femeg/
