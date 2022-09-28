@@ -7,11 +7,12 @@ const FormRender = ({ type, ...otherProps }) => {
 
     const typeText = (
         <ReduxInputGroup>
-            <InputLeftElement
-                pointerEvents='none'
-                children={otherProps.icon}
+            <Form.Label>{getMessage(otherProps.placeholder)}</Form.Label>
+            <Input 
+                type={type} 
+                background='rgb(235, 245, 251)'
+                borderRadius='15px'
             />
-            <Input type={type} placeholder={getMessage(otherProps.placeholder)} />
         </ReduxInputGroup>
     )
 
@@ -46,6 +47,7 @@ const FormRender = ({ type, ...otherProps }) => {
     return (
         <>
             {type === 'text' && typeText}
+            {type === 'number' && typeText}
             {type === 'email' && typeText}
             {type === 'tel' && typeTel}
             {type === 'options' && typeOptions}
@@ -58,6 +60,8 @@ export default FormRender
 
 const ReduxInputGroup = chakra(InputGroup, {
     baseStyle: {
-        margin: '20px 0'
+        margin: '20px 0',
+        display: 'flex',
+        flexDirection: 'column'
     }
 })

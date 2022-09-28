@@ -25,7 +25,8 @@ const Messages = {
     'SUCCEFUL_SEND': '¡Envio exitoso!',
     'DESCRIPTION_SUCCEFUL_SEND_DATA': 'Tu informacion ha sido enviada de forma correcta. ¡Suerte!',
     'OK_MESSAGE': 'Aceptar',
-    'TITLE_PAGE': 'REGISTRO DE ASPIRANTES A CURSO ALTA ESPECILIDAD EN ENDOSCOPIA GINECOLOGICA'
+    'TITLE_PAGE': 'REGISTRO DE ASPIRANTES A CURSO ALTA ESPECILIDAD EN ENDOSCOPIA GINECOLOGICA',
+    'NOT_APPLICABLE': 'No aplica'
 }
 
 export default Messages
