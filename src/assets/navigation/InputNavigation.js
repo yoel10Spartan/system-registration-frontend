@@ -19,7 +19,7 @@ const inputList = [
         placeholder: 'EMAIL_PLACEHOLDER'
     },
     {
-        type: 'tel',
+        type: 'number',
         ext: '+52',
         placeholder: 'CELLPHONE_PLACEHOLDER'
     },
@@ -28,7 +28,8 @@ const inputList = [
         options: [
             'SPECIALITY',
             'SUSSPECIALTY',
-            'HIGHSPECIALITY'
+            'HIGHSPECIALITY',
+            'NOT_APPLICABLE'
         ],
         defaultMessage: 'DEFAULT_VALUE_OPTIONS'
     }

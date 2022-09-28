@@ -49,7 +49,7 @@ const FormRegister = () => {
 
     return (
         <FormContainer onSubmit={handlesSendData}>
-            { AlertWarning }
+            { AlertInfo }
 
             {
                 inputList.map((input, i) => (
@@ -57,13 +57,13 @@ const FormRegister = () => {
                 ))
             }
 
-            { AlertInfo }
-
             {
                 fileInputList.map((input, i) => (
                     <FormRender key={i} { ...input } />
                 ))
             }
+
+            { AlertWarning }
 
             <Button 
                 colorScheme='gray'
