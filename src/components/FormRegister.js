@@ -156,7 +156,7 @@ const FormRegister = () => {
             {
                 fileInputList.map((input, i) => (
                     (
-                        (valueSystem === '0' || valueSystem === '1')
+                        !(valueSystem === '0' || valueSystem === '1')
                             &&
                         (valuesHiddeForSystemSelect.indexOf(i) !== -1)
                     )
