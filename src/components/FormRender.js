@@ -12,6 +12,7 @@ const FormRender = ({ type, ...otherProps }) => {
                 type={type} 
                 background='rgb(235, 245, 251)'
                 borderRadius='15px'
+                {...otherProps.register}
             />
         </ReduxInputGroup>
     )
@@ -19,13 +20,21 @@ const FormRender = ({ type, ...otherProps }) => {
     const typeTel = (
         <ReduxInputGroup>
             <InputLeftAddon children={otherProps.ext} />
-            <Input type={type} placeholder={getMessage(otherProps.placeholder)} />
+            <Input 
+                type={type} 
+                placeholder={getMessage(otherProps.placeholder)} 
+                {...otherProps.register}
+            />
         </ReduxInputGroup>
     )
 
     const typeOptions = (
         <ReduxInputGroup>
-            <Select placeholder={getMessage('DEFAULT_VALUE_OPTIONS')}>
+            <Select 
+                placeholder={getMessage('DEFAULT_VALUE_OPTIONS')}
+                {...otherProps.register}
+                onChange={otherProps.onChange}
+            >
                 {
                     otherProps.options?.map((op, i) => (
                         <option key={i} value={i}>{getMessage(op)}</option>
