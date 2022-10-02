@@ -150,7 +150,7 @@ const FormRegister = () => {
         >
             <Alert 
                 status='info'
-                background='#000'
+                background='#252440'
                 color='#fff'
                 margin='20px 0'
             >
