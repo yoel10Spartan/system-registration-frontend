@@ -36,8 +36,12 @@ class Connection {
         formData.append("file_7", files.file_7[0]);
         formData.append("file_8", files.file_8[0]);
 
+        const params = new URLSearchParams({
+            id: this.data.id
+        }).toString();
+
         const request = await axios.post(
-            `${this.url}/api/attende/files?id=${this.data.id}`,
+            `${this.url}/api/attende/files?` + params,
             formData,
             {
                 headers: {
