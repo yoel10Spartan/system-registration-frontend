@@ -63,7 +63,7 @@ const FormRegister = () => {
         {
             type: 'file',
             label: '2_LABEL_FILE',
-            register: register("file_2", { required: false }),
+            register: register("file_2"),
         },
         {
             type: 'file',
@@ -93,7 +93,7 @@ const FormRegister = () => {
         {
             type: 'file',
             label: '8_LABEL_FILE',
-            register: register("file_8", { required: false }),
+            register: register("file_8"),
         },
     ]
 
