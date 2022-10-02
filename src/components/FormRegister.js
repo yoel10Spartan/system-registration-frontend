@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, chakra, InputGroup, Text, useDisclosure } from '@chakra-ui/react'
 import AlertMessage from './AlertMessage'
 import FormRender from './FormRender'
@@ -6,10 +6,12 @@ import getMessage from '../utils/getMessage'
 import { useForm } from "react-hook-form";
 import { BsFillPersonLinesFill, BsFillPersonCheckFill } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
+import { ServerContext } from '../management/ServerProvider'
 
 const FormRegister = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [valueSystem, setValueSystem] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const valuesHiddeForSystemSelect = [2, 5]
 
@@ -36,7 +38,7 @@ const FormRegister = () => {
             type: 'number',
             ext: '+52',
             placeholder: 'CELLPHONE_PLACEHOLDER',
-            register: register("cellphone", { required: true })
+            register: register("phone", { required: true })
         },
         {
             type: 'options',
@@ -47,7 +49,7 @@ const FormRegister = () => {
                 'NOT_APPLICABLE'
             ],
             defaultMessage: 'DEFAULT_VALUE_OPTIONS',
-            register: register("system", { required: true }),
+            register: register("level", { required: true }),
             onChange: (e) => {setValueSystem(e.target.value);}
         }
     ]
@@ -55,43 +57,70 @@ const FormRegister = () => {
     const fileInputList = [
         {
             type: 'file',
-            label: '1_LABEL_FILE'
+            label: '1_LABEL_FILE',
+            register: register("file_1", { required: true }),
         },
         {
             type: 'file',
-            label: '2_LABEL_FILE'
+            label: '2_LABEL_FILE',
+            register: register("file_2", { required: false }),
         },
         {
             type: 'file',
-            label: '3_LABEL_FILE'
+            label: '3_LABEL_FILE',
+            register: register("file_3", { required: true }),
         },
         {
             type: 'file',
-            label: '4_LABEL_FILE'
+            label: '4_LABEL_FILE',
+            register: register("file_4", { required: true }),
         },
         {
             type: 'file',
-            label: '5_LABEL_FILE'
+            label: '5_LABEL_FILE',
+            register: register("file_5", { required: true }),
         },
         {
             type: 'file',
-            label: '6_LABEL_FILE'
+            label: '6_LABEL_FILE',
+            register: register("file_6", { required: true }),
         },
         {
             type: 'file',
-            label: '7_LABEL_FILE'
+            label: '7_LABEL_FILE',
+            register: register("file_7", { required: true }),
         },
         {
             type: 'file',
-            label: '8_LABEL_FILE'
+            label: '8_LABEL_FILE',
+            register: register("file_8", { required: false }),
         },
     ]
 
     const disclosure = useDisclosure()
+    const { serverConnection } = useContext(ServerContext);
 
-    const handleSendData = (data) => {
-        disclosure.onOpen();
-        console.log(data);
+    const handleSendData = async (data) => {
+        const {name, lastname, email, phone, level, ...fields} = data;
+
+        setIsLoading(true);
+        await serverConnection.sendData({
+            name,
+            lastname, 
+            email,
+            phone,
+            level,
+        });
+
+        await serverConnection.sendFiles(fields);
+        await serverConnection.sendEmail();
+
+        if(serverConnection.ok_sendEmail){
+            disclosure.onOpen();
+            reset(); 
+        }
+
+        setIsLoading(false);
     }
 
     const AlertWarning = (
@@ -178,6 +207,7 @@ const FormRegister = () => {
                 colorScheme='gray'
                 width='100%'
                 type='submit'
+                isLoading={isLoading}
             >
                 {getMessage('SEND')}
             </Button>

@@ -49,7 +49,10 @@ const FormRender = ({ type, ...otherProps }) => {
             flexDirection='column'
         >
             <Form.Label>{getMessage(otherProps.label)}</Form.Label>
-            <Form.Control type={type} />
+            <Form.Control 
+                type={type} 
+                {...otherProps?.register}
+            />
         </ReduxInputGroup>
     )
 
