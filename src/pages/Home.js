@@ -19,7 +19,15 @@ const Home = () => {
                 {getMessage('TITLE_PAGE')}
             </Text>
 
-            <FormRegister />
+            <Text
+                textAlign='center'
+                fontWeight='700'
+                margin='30px'
+            >
+                REGISTRO CERRADO, GRACIAS POR SU INTERES
+            </Text>
+
+            {/* <FormRegister /> */}
         </Container>
     )
 }
